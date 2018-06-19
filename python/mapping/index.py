@@ -1,5 +1,6 @@
 import folium
 import pandas
+import time
 
 #Parse file with data
 data=pandas.read_csv("data/university.csv")
@@ -45,6 +46,8 @@ def main():
     map.add_child(folium.LayerControl())
 
     map.save("index.html")
-
+def sleep():
+    time.sleep(500)
 if __name__ == '__main__':
     main()
+    sleep()
