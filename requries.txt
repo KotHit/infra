@@ -1,0 +1,9 @@
+requires:
+[python]
+python3
+pip3
+Jinja2
+Folium lib
+pandas lib
+
+
