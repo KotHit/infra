@@ -1,6 +1,24 @@
 import folium
 import pandas
-import time
+import mysql.connector
+from mysql.connector import errorcode
+
+
+
+try:
+    cnx = connection.MySQLConnection(user='root', password='admin',
+                                 host='10.10.10.2',
+                                 database='university')
+    print("All works fine")
+except mysql.connector.Error as err:
+  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+    print("Something is wrong with your user name or password")
+  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+    print("Database does not exist")
+  else:
+    print(err)
+else:
+  cnx.close()
 
 #Parse file with data
 data=pandas.read_csv("data/university.csv")
@@ -8,7 +26,6 @@ name=list(data["University"])
 rate=list(data["Rate"])
 lat=list(data["Lat"])
 lon=list(data["Lon"])
-
 
 def color_mark(rate):
     if rate<0:
@@ -46,8 +63,6 @@ def main():
     map.add_child(folium.LayerControl())
 
     map.save("index.html")
-def sleep():
-    time.sleep(500)
+
 if __name__ == '__main__':
     main()
-    sleep()
