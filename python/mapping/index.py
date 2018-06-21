@@ -6,9 +6,10 @@ from mysql.connector import errorcode
 
 
 try:
-    cnx = connection.MySQLConnection(user='root', password='admin',
-                                 host='10.10.10.2',
-                                 database='university')
+    cnx = mysql.connector.MySQLConnection(user='developer', password='dev',
+                                 host='10.0.10.10',
+                                 port=4000,
+                                 database='test')
     print("All works fine")
 except mysql.connector.Error as err:
   if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:

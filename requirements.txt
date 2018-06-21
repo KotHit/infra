@@ -1,5 +1,4 @@
 Jinja2
 Folium
 pandas
-
-
+mysql-connector
