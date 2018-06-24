@@ -1,5 +1,12 @@
-node {
-    checkout scm
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
-
+pipeline{
+    agent any
+    stages{
+        stage('Build'){
+            steps{
+                echo "Start"
+                sh 'docker-compose up -d'
+        
+            }
+        }
+    }
 }
