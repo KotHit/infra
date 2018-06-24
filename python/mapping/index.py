@@ -63,7 +63,7 @@ def main():
     map.add_child(fg_poligon)
     map.add_child(fg_layer_one)
     map.add_child(folium.LayerControl())
-    path='/usr/src/app/mapping/data/map/index.html'
+    path='/usr/src/app/mapping/data/index.html'
     map.save(path)
 
 if __name__ == '__main__':
