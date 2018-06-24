@@ -9,6 +9,7 @@ pipeline{
             } catch (err) {
                 echo err
             }
+            }
            }
       }
         stage('Build'){
