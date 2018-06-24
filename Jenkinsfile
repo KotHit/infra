@@ -18,8 +18,11 @@ pipeline{
             steps{
                 echo "Run Python"
                 sh 'docker-compose up -d python'
-
             }
+	    steps{
+	    	echo "Python logs"
+		sh 'docker logs python-app'
+	    }
         }
     }
 }
