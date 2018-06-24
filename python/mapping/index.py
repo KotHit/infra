@@ -7,8 +7,8 @@ from mysql.connector import errorcode
 def mysql_con():
     try:
         cnx = mysql.connector.MySQLConnection(user='developer', password='dev',
-                                     host='10.10.10.2',
-                                     port=3306,
+                                     host='10.0.10.10',
+                                     port=4000,
                                      database='university')
         print("All works fine")
         data=pandas.read_sql("SELECT * FROM TABLE_NAME", con=cnx)
@@ -64,7 +64,7 @@ def main():
     map.add_child(fg_layer_one)
     map.add_child(folium.LayerControl())
     path='./data/map/index.html'
-    map.save('index.html')
+    map.save(path)
 
 if __name__ == '__main__':
     main()

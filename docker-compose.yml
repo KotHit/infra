@@ -18,8 +18,7 @@ services:
     build: ./python/
     container_name: python-app
     volumes:
-      - /home/vagrant/data/python:/usr/src/app
-      - /home/vagrant/data/python2:/usr/src/app/mapping/data/map
+      - /home/vagrant/data/python:/usr/src/app/mapping/data/map
     networks:
       - infra_net
 networks:
