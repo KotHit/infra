@@ -51,7 +51,7 @@ def main():
         fg_name.add_child(folium.Marker(location=[lt, ln], popup=str(nm + "\n" + str(rt)), icon=folium.Icon(color=color_temp, icon=icon_temp)))
 
     fg_poligon=folium.FeatureGroup(name="Poligon")
-    fg_poligon.add_child(folium.GeoJson(data=open('data/countries.geo.json', 'r', encoding='utf-8-sig').read()))
+    fg_poligon.add_child(folium.GeoJson(data=open('/usr/src/app/mapping/data/countries.geo.json', 'r', encoding='utf-8-sig').read()))
 
     fg_layer_one=folium.FeatureGroup(name="MapBox Bright")
     fg_layer_one.add_child(folium.TileLayer('MapBox Bright'))
@@ -63,7 +63,7 @@ def main():
     map.add_child(fg_poligon)
     map.add_child(fg_layer_one)
     map.add_child(folium.LayerControl())
-    path='./data/map/index.html'
+    path='/usr/src/app/mapping/data/map/index.html'
     map.save(path)
 
 if __name__ == '__main__':
