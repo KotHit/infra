@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  mysql:
+    build: ./mysql/
+    container_name: mysql-server
+    ports:
+      - "4000:3306"
+    volumes:
+      - /home/vagrant/data/mysql:/var/mysql
+      - /home/vagrant/data/mysql/university.sql:/docker-entrypoint-initdb.d/university.sql
+    networks:
+      - infra_net
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+  python:
+    build: ./python/
+    container_name: python-app
+    volumes:
+      - /home/vagrant/data/python:/usr/src/app
+    networks:
+      - infra_net
+networks:
+  infra_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/24
+#   db_vol:
+#   #     driver: local
+#   #     driver_opts:
+#   #       type: none
+#   #       o: bind
+#   #       device: /home/vagrant/data/mysql
+#   #   py_vol:
+#   #      driver: local
+#   #      driver_opts:
+#   #        type: none
+#   #        o: bind
+#   #        device: /home/vagrant/data/python

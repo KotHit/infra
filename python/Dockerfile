@@ -7,5 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "./python/mapping/index.py" ]
-
+CMD [ "python", "./mapping/index.py" ]
