@@ -64,7 +64,7 @@ def main():
     map.add_child(fg_layer_one)
     map.add_child(folium.LayerControl())
     path='./data/map/index.html'
-    map.save(path)
+    map.save('index.html')
 
 if __name__ == '__main__':
     main()
